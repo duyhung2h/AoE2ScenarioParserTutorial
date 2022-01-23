@@ -15,12 +15,16 @@ source_scenario = AoE2DEScenario.from_file(input_path)
 source_trigger_manager = source_scenario.trigger_manager
 
 # Start writing your code here:
-# copy the first trigger
-triggerCopy = source_trigger_manager.copy_trigger(trigger_select=0)
+# copy the first trigger and edit it
+triggerSource = source_trigger_manager.triggers[0]
+triggerSource.new_effect.activate_trigger(trigger_id=triggerSource.trigger_id + 1)
+triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id)
+triggerCopy.enabled = False
 triggerCopy.get_condition(0).timer = 10
 triggerCopy.get_effect(0).source_player = 2
 triggerCopy.get_effect(1).message = "<RED> An imposter king has arrived!"
 triggerCopy.get_effect(2).source_player = 2
+triggerCopy.remove_effect(3)
 
 # Final step: write a modified scenario class to a new scenario file
 source_scenario.write_to_file(output_path)

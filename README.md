@@ -1,6 +1,8 @@
 # AoE2ScenarioParserTutorial
 These are examples scripts that you can use for AoE2ScenarioParser, made by duyhung2h. Follow and subscribe to my channel for more Scenario Tricks!
+
 Join the ScenarioParser discord to get your question answered by an admin: [AoE2ScenarioParser Discord Server](https://discord.com/invite/BSU6VS4RFd)
+
 I'm also working on a reddit community catered to all aoe 2 modders: [r/AoE2ScenarioDesigning](https://www.reddit.com/r/AoE2ScenarioDesigning)
 ## Step by step
 

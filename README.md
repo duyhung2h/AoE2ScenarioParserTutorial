@@ -1,5 +1,7 @@
 # AoE2ScenarioParserTutorial
 These are examples scripts that you can use for AoE2ScenarioParser, made by duyhung2h. Follow and subscribe to my channel for more Scenario Tricks!
+Join the ScenarioParser discord to get your question answered by an admin: [AoE2ScenarioParser Discord Server](https://discord.com/invite/BSU6VS4RFd)
+I'm also working on a reddit community catered to all aoe 2 modders: [r/AoE2ScenarioDesigning](https://www.reddit.com/r/AoE2ScenarioDesigning)
 ## Step by step
 
 ### 1. Create the scenario
@@ -56,7 +58,14 @@ input_path = scenario_folder + "YourScenarioFilename.aoe2scenario"
 output_path = scenario_folder + "YourScenarioFilename Parser Result.aoe2scenario"
 ```
 
-To work with your scenario trigger, first you declare your trigger manager like so (already provided in `example - Template.py`):
+To work with your scenario trigger, first you declare your scenario object, then get trigger manager object like so (already provided in `example - Template.py`):
+```
+# declare scenario class
+source_scenario = AoE2DEScenario.from_file(input_path)
+
+# declare trigger manager to work with variables and triggers
+source_trigger_manager = source_scenario.trigger_manager
 ```
 
-```
+Then, you can finally work with everything related to triggers with the object `source_trigger_manager`. 
+You can check for more examples in their respective folders in this repository. Happy designing!

@@ -52,7 +52,7 @@ class Trigger
 
 Read more about classes in (W3School)[https://www.w3schools.com/python/python_classes.asp]
 
-### Comments
+### 4. Comments
 In Python, you can use comment by adding `#` before a sentence.
 
 Comments are for code-readability, and to summerize the functionality of your codes.
@@ -73,19 +73,19 @@ Or you can comment lines of functioning code to prevent its execution, while kee
 
 ## PyCharm useful functionalities you should know
 
-### Hold CTRL + click on items
+### 1. Hold CTRL + click on items
 You can hold `CTRL` and click on an attribute / class / function to go to its declaration, to find out about attributes and documents about them.
 
 For example, to know all about attributes that contains inside the `ObjectAttribute` class, used in the "Modify Attribute" effect, hold `CTRL` and click on the class name:
 ![image](https://user-images.githubusercontent.com/40296674/151027885-4b79738b-dda7-4df5-bb87-3a9df59a5785.png)
 
-### Quick comment (CTRL + /)
+### 2. Quick comment (CTRL + /)
 You can comment a line of code, or a block of code quickly by selecting them,
 
 Then hold `CTRL`, and press `/`.
 ![image](https://user-images.githubusercontent.com/40296674/151028180-2641477a-885f-4cca-bb4c-924238494cb4.png)
 
-### Quick format (CTRL + ALT + L)
+### 3. Quick format (CTRL + ALT + L)
 If your script is messy with unnecessary white spaces or indentation, it could cause a dent on code-readability, or sometimes it could cause some unnecessary error.
 
 Remember to reformat your code script often!

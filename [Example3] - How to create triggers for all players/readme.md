@@ -1,5 +1,5 @@
 # How to create triggers for all players
-This is a tutorial on how to create triggers for all players by combining 2 elements: Basic loop iteration from example 1 and copy_trigger function from example 2.
+This is a tutorial on how to create triggers for all players by combining 2 elements: Basic loop iteration from example 1 and `copy_trigger` function from example 2.
 ## Step by step
 ```
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
@@ -40,46 +40,47 @@ triggerCopy.remove_effect(3)
 source_scenario.write_to_file(output_path)
 ```
 ### 1. Create your scenario
-Use the scenario provided in the example folder called "ScenarioParser - EditTriggers.aoe2scenario", or change the `input_path` to your scenario name.
+Use the scenario provided in the example folder called `ScenarioParser - EditTriggers.aoe2scenario`, or change the `input_path` to your scenario name.
 ### 2. Manipulate existing triggers
 ![image](https://user-images.githubusercontent.com/40296674/150691285-4f219673-786e-4b6c-9779-49f01b6ffe25.png)
 
-This is a fun example, the source trigger will create a fat king and announce his presence, and then move him to a degsinated area.
+From combining elements from Example 1 and Example 2, you can copy any existing triggers and repeating the process, changing its condition and effect attributes value to every players, from 1 to 8!
 
-With a simple example trigger like this, you can copy it's existing data and edit the trigger's data, as well as it's condition and effect.
-
-In Python and many programming language, the first object of any list has an index of 0, so you can take the first trigger out of the trigger list like so:
-```
-triggerSource = source_trigger_manager.triggers[0]
-```
-![image](https://user-images.githubusercontent.com/40296674/150691454-34cd048e-fb0b-44e5-a852-39dd14bbfd7c.png)
-
-The first trigger will activate the copied trigger. To do that, use `new_effect` function to add a new `activate trigger` effect to `triggerSource`:
-```
-triggerSource.new_effect.activate_trigger(trigger_id=triggerSource.trigger_id + 1)
-```
-
-After that, use copy_trigger to copy the structure of a trigger, including all of its property, conditions and effects, one by one.
+With a simple example trigger like this, you can copy it's existing data and edit the trigger's data, as well as it's condition and effects. You can also add an if else statements to change the text color according to the current player's `playerId` in the loop iteration like so:
 
 ```
-triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id)
-triggerCopy.enabled = False
-triggerCopy.get_condition(0).timer = 10
-triggerCopy.get_effect(0).source_player = 2
-triggerCopy.get_effect(1).message = "<RED> An imposter king has arrived!"
-triggerCopy.get_effect(2).source_player = 2
+    if playerId == 1
+        triggerCopy.get_effect(1).message = "<BLUE>An imposter king has arrived!"
+    elif playerId == 2:
+        triggerCopy.get_effect(1).message = "<RED>An imposter king has arrived!"
+    # ...
+```
+You need to use `copy_trigger` function and set the `trigger_select` attribute to be the id of the previous last copied trigger (ex: if the current loop iteration has `playerId` = 3, you need to copy the id of the trigger with `playerId` = 2), because a copied trigger will be added after the copied trigger in the list, but not appending the trigger to the end of the list.
+
+And so, the trigger id the `trigger_select` attribute should take into accounts is the `triggerSource` id, plus `playerId` minus 1.
+```
+    triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id + playerId - 1)
+```
+
+And finally, write your block of code and replace any attribute with player's number to be `playerId`, and remove an activate trigger effect in the last trigger.
+
+```
+for playerId in range (1, 9, 1):
+    triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id + playerId - 1)
+    triggerCopy.enabled = False
+    triggerCopy.name = triggerSource.name + " P" + str(playerId)
+    triggerCopy.get_condition(0).timer = 10
+    triggerCopy.get_effect(0).source_player = playerId
+    triggerCopy.get_effect(1).message = "An imposter king has arrived!"
+    triggerCopy.get_effect(2).source_player = playerId
+    triggerCopy.get_effect(3).trigger_id = triggerCopy.trigger_id + 1
+    print(triggerCopy.trigger_id)
 triggerCopy.remove_effect(3)
 ```
 
-The first trigger will activate the new copy trigger, so we'll put the new copied trigger's state to `False`.
 
-You can edit each condition and effect by calling it's id using the function `get_condition` and `get_effect`.
 
-The king spawned in has been changed to Player 2. Now we just need to remove the last `Activate Trigger` effect by using `remove_effect`.
-
-And Voila!
-
-![image](https://user-images.githubusercontent.com/40296674/150691897-0ac90488-331b-4c46-b796-b12e3cc659db.png)
+![image](https://user-images.githubusercontent.com/40296674/150970679-49081163-bdba-4175-8b56-7d5f56a31439.png)
 
 
 There are a lot more examples, and this is just one of them. Check the main library to [learn more](https://github.com/KSneijders/AoE2ScenarioParser)

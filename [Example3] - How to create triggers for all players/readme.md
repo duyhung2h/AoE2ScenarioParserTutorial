@@ -78,9 +78,8 @@ for playerId in range (1, 9, 1):
 triggerCopy.remove_effect(3)
 ```
 
+![image](https://user-images.githubusercontent.com/40296674/150970939-b9258077-47d5-458b-a5c5-80e799724341.png)
 
-
-![image](https://user-images.githubusercontent.com/40296674/150970679-49081163-bdba-4175-8b56-7d5f56a31439.png)
 
 
 There are a lot more examples, and this is just one of them. Check the main library to [learn more](https://github.com/KSneijders/AoE2ScenarioParser)

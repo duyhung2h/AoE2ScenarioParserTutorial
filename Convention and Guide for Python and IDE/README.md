@@ -11,7 +11,9 @@ Code blocks are separated by indentation (this is similar to other programming l
 
 ### 2. print()
 Use the `print` function to quickly print out a string, an attribute value, lists, etc... to (almost) check everything's value:
+
 ```print(triggers[0].name)```. 
+
 You can also use print for debugging purposes, such as to check if a code block got runned or not.
 
 Remember, you cannot print out specific types, like `int`, but you can always convert them to type `str` by writing: `str(10)`
@@ -19,6 +21,7 @@ Remember, you cannot print out specific types, like `int`, but you can always co
 A class is an entity, usually stored in another python file, and defined in the start by `class`. Within a class there are several attributes you can declare (inside a constructor subroutine, which is `def __init__` in Python, and you can reuse them later on for ease of use to write data. Class can also be contained inside a list.
 
 Some attributes within a class can also have a default value, simply in the constructor declaration assign a value to it (like in this example below, `Effect` class will have 1 as its default value):
+
 ```
 class Effect
   def __init__(self, effect_type, source_player=1):
@@ -28,6 +31,7 @@ class Effect
 ```
 
 It's like a template that you can reuse infinite number of times, like how a Trigger class can have different attributes (taken inside AoE2ScenarioParser library):
+
 ```
 class Trigger
     def __init__(self,
@@ -60,6 +64,7 @@ In Python, you can use comment by adding `#` before a sentence.
 Comments are for code-readability, and to summerize the functionality of your codes.
 
 Be sure to comment often, so others (and future you!) to understand your code. Comments should be short and percise.
+
 ```
 # This is a Character class
 #
@@ -71,6 +76,7 @@ Be sure to comment often, so others (and future you!) to understand your code. C
 class Character:
   # ...
 ```
+
 Or you can comment lines of functioning code to prevent its execution, while keeping it's written text in your script.
 
 Read more about comments in [W3School](https://www.w3schools.com/python/python_comments.asp)
@@ -81,12 +87,14 @@ Read more about comments in [W3School](https://www.w3schools.com/python/python_c
 You can hold `CTRL` and click on an attribute / class / function to go to its declaration, to find out about attributes and documents about them.
 
 For example, to know all about attributes that contains inside the `ObjectAttribute` class, used in the "Modify Attribute" effect, hold `CTRL` and click on the class name:
+
 ![image](https://user-images.githubusercontent.com/40296674/151027885-4b79738b-dda7-4df5-bb87-3a9df59a5785.png)
 
 ### 2. Quick comment (CTRL + /)
 You can comment a line of code, or a block of code quickly by selecting them,
 
 Then hold `CTRL`, and press `/`.
+
 ![image](https://user-images.githubusercontent.com/40296674/151028180-2641477a-885f-4cca-bb4c-924238494cb4.png)
 
 ### 3. Quick format (CTRL + ALT + L)
@@ -96,8 +104,11 @@ Remember to reformat your code script often!
 
 ### 4. Suggestion box
 In PyCharm, sometimes suggestion box will show while you type so you can quickly finish writing an attribute's name, or a class's name:
+
 ![image](https://user-images.githubusercontent.com/40296674/151034118-88bb414e-8053-466b-b632-26407513b959.png)
+
 Or if you want to force PyCharm to display more relevant suggestion, or sometimes autofill attribute or function names if there's only one suggestion, Hold `CTRL` and press `Space`.
+
 ![image](https://user-images.githubusercontent.com/40296674/151034604-3b0a3c65-1513-41fc-adc8-7e568cb2085f.png)
 
 

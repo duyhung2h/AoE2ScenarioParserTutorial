@@ -1,7 +1,7 @@
 # Convention and Guide for Python and IDE:
 These are short tutorials about convention and small tips of how you should write Python, which are also followed by most of other programming language, and PyCharm's useful functionalities you should know (which is also included in most IDE)
 
-If you want to check more extensive tutorials about Python, visit (W3Schools Python Tutorial)[https://www.w3schools.com/python/default.asp]. This documents only covers the basics that you should know.
+If you want to check more extensive tutorials about Python, visit [W3Schools Python Tutorial](https://www.w3schools.com/python/default.asp). This documents only covers the basics that you should know.
 
 ## Some general Python tips:
 
@@ -50,7 +50,7 @@ class Trigger
                  ):
 ```
 
-Read more about classes in (W3School)[https://www.w3schools.com/python/python_classes.asp]
+Read more about classes in [W3School](https://www.w3schools.com/python/python_classes.asp)
 
 ### 4. Comments
 In Python, you can use comment by adding `#` before a sentence.
@@ -70,6 +70,8 @@ class Character:
   # ...
 ```
 Or you can comment lines of functioning code to prevent its execution, while keeping it's written text in your script.
+
+Read more about comments in [W3School](https://www.w3schools.com/python/python_comments.asp)
 
 ## PyCharm useful functionalities you should know
 

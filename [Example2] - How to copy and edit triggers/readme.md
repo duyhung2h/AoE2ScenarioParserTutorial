@@ -35,7 +35,7 @@ source_scenario.write_to_file(output_path)
 
 ```
 ### 1. Create your scenario
-Create an empty scenario in the editor and save it as "ScenarioParser - EditTriggers", or change the `input_path` to your scenario name.
+Use the scenario provided in the example folder called "ScenarioParser - EditTriggers.aoe2scenario", or change the `input_path` to your scenario name.
 ### 2. Manipulate existing triggers
 ![image](https://user-images.githubusercontent.com/40296674/150691285-4f219673-786e-4b6c-9779-49f01b6ffe25.png)
 

@@ -15,8 +15,8 @@ source_scenario = AoE2DEScenario.from_file(input_path)
 source_trigger_manager = source_scenario.trigger_manager
 
 # Start writing your code here:
-# a loop iteration: triggerId will start from 0, each iteration increase triggerId by 1, until triggerId reached 100
-for triggerId in range(0, 100, 1):
+# a loop iteration: triggerId will start from 0, each iteration increase triggerId by 1, until triggerId reached 9999
+for triggerId in range(0, 9999, 1):
     trigger0 = source_trigger_manager.add_trigger("----Trigger block" + str(triggerId) + "----", enabled=False,
                                                   looping=False)
     trigger1 = source_trigger_manager.add_trigger("Trigger #" + str(trigger0.trigger_id + 1), enabled=True,

@@ -1,5 +1,5 @@
-# How to copy / edit triggers
-This is a tutorial on how to manipulate existing triggers using `copy_trigger`, `get_condition` and `get_effect`.
+# How to create triggers for all players
+This is a tutorial on how to create triggers for all players by combining 2 elements: Basic loop iteration from example 1 and copy_trigger function from example 2.
 ## Step by step
 ```
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
@@ -10,7 +10,7 @@ scenario_folder = "C:/Users/Admin/Games/Age of Empires 2 DE/76561198148041091/re
 
 # Source scenario to work with
 input_path = scenario_folder + "ScenarioParser - EditTriggers.aoe2scenario"
-output_path = scenario_folder + "ScenarioParser - EditTriggers Parser Result.aoe2scenario"
+output_path = scenario_folder + "ScenarioParser - EditTriggersAllPlayers Parser Result.aoe2scenario"
 
 # declare scenario class
 source_scenario = AoE2DEScenario.from_file(input_path)
@@ -21,21 +21,26 @@ source_trigger_manager = source_scenario.trigger_manager
 # Start writing your code here:
 # copy the first trigger and edit it
 triggerSource = source_trigger_manager.triggers[0]
+triggerSource.name = "example "
 triggerSource.new_effect.activate_trigger(trigger_id=triggerSource.trigger_id + 1)
-triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id)
-triggerCopy.enabled = False
-triggerCopy.get_condition(0).timer = 10
-triggerCopy.get_effect(0).source_player = 2
-triggerCopy.get_effect(1).message = "<RED> An imposter king has arrived!"
-triggerCopy.get_effect(2).source_player = 2
+for playerId in range (1, 9, 1):
+    triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id + playerId - 1)
+    triggerCopy.enabled = False
+    triggerCopy.name = triggerSource.name + " P" + str(playerId)
+    triggerCopy.get_condition(0).timer = 10
+    triggerCopy.get_effect(0).source_player = playerId
+    triggerCopy.get_effect(1).message = "An imposter king has arrived!"
+    triggerCopy.get_effect(2).source_player = playerId
+    triggerCopy.get_effect(3).trigger_id = triggerCopy.trigger_id + 1
+    print(triggerCopy.trigger_id)
 triggerCopy.remove_effect(3)
+
 
 # Final step: write a modified scenario class to a new scenario file
 source_scenario.write_to_file(output_path)
-
 ```
 ### 1. Create your scenario
-Create an empty scenario in the editor and save it as "ScenarioParser - EditTriggers", or change the `input_path` to your scenario name.
+Use the scenario provided in the example folder called "ScenarioParser - EditTriggers.aoe2scenario", or change the `input_path` to your scenario name.
 ### 2. Manipulate existing triggers
 ![image](https://user-images.githubusercontent.com/40296674/150691285-4f219673-786e-4b6c-9779-49f01b6ffe25.png)
 

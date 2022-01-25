@@ -94,4 +94,11 @@ If your script is messy with unnecessary white spaces or indentation, it could c
 
 Remember to reformat your code script often!
 
+### 4. Suggestion box
+In PyCharm, sometimes suggestion box will show while you type so you can quickly finish writing an attribute's name, or a class's name:
+![image](https://user-images.githubusercontent.com/40296674/151034118-88bb414e-8053-466b-b632-26407513b959.png)
+Or if you want to force PyCharm to display more relevant suggestion, or sometimes autofill attribute or function names if there's only one suggestion, Hold `CTRL` and press `Space`.
+![image](https://user-images.githubusercontent.com/40296674/151034604-3b0a3c65-1513-41fc-adc8-7e568cb2085f.png)
+
+
 

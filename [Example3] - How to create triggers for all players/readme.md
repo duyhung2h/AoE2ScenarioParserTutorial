@@ -46,7 +46,7 @@ Use the scenario provided in the example folder called `ScenarioParser - EditTri
 
 From combining elements from Example 1 and Example 2, you can copy any existing triggers and repeating the process, changing its condition and effect attributes value to every players, from 1 to 8!
 
-With a simple example trigger like this, you can copy it's existing data and edit the trigger's data, as well as it's condition and effects. You can also add an if else statements to change the text color according to the current player's `playerId` in the loop iteration like so:
+With a simple example trigger like this, you can copy it's existing data and edit the trigger's data, as well as it's condition and effects. You can also add an `if else` statements to change the text color according to the current player's `playerId` in the loop iteration like so:
 
 ```
     if playerId == 1

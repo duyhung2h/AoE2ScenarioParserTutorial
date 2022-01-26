@@ -7,7 +7,11 @@ If you want to check more extensive tutorials about Python, visit [W3Schools Pyt
 
 ### 1. Identation
 Code blocks are separated by indentation (this is similar to other programming language curly braces "{}"), that means after a statement, like `if ... else` or `for`. You need to separate your code within a statement by pressing `TAB`, or 4 `Spacebar` spaces. This is to indicate if your code is within the statement or not.
-![image](https://user-images.githubusercontent.com/40296674/151033526-84e0d492-0a9e-45e1-8966-21cdf53352a2.png)
+![image](https://user-images.githubusercontent.com/40296674/151033526-84e0d492-0a9e-45e1-8966-21cdf53352a2.png)'
+
+You can select multiple lines of code and press `TAB` to add 1 indentation to all selected lines, or hold `SHIFT + TAB` to remove 1 indentation from all selected lines.
+
+Additionally, you can hold `CTRL + ALT + I` to auto-indent all of your current selected code. 
 
 ### 2. print()
 Use the `print` function to quickly print out a string, an attribute value, lists, etc... to (almost) check everything's value:

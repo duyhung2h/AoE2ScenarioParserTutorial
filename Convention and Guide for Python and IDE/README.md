@@ -115,5 +115,10 @@ Or if you want to force PyCharm to display more relevant suggestion, or sometime
 
 ![image](https://user-images.githubusercontent.com/40296674/151034604-3b0a3c65-1513-41fc-adc8-7e568cb2085f.png)
 
+### 5. Show document (CTRL + Q)
+
+![image](https://user-images.githubusercontent.com/40296674/151358899-63906dc6-7233-4e45-afd8-5c68294a098e.png)
+
+![image](https://user-images.githubusercontent.com/40296674/151358769-e979fa85-a7c6-4155-82da-957fccc204f9.png)
 
 

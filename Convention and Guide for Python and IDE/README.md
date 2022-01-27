@@ -70,15 +70,16 @@ Comments are for code-readability, and to summerize the functionality of your co
 Be sure to comment often, so others (and future you!) to understand your code. Comments should be short and percise.
 
 ```
-# This is a Character class
-#
-# A character can have different attributes, such as unitId, unitName (their true name displayed in the scenario)
-# characterClass indicates which class a character is, which will affect on their gear restriction.
-# There are 4 character classes at the moment: warrior, rogue, ranger and soulweaver.
-# They can also have different panel areas, according to their position on the list.
-
-class Character:
-  # ...
+    # run for each equipment
+    for b in range(0, len(listEquipments), 1):
+        print(listEquipments[b].fullname)
+        # check if equipment is a weapon - what kind of equipment is it? Does it match the character's class?
+        if listEquipments[b].equipmentType == "Weapon":
+            isWeaponMatched = False
+            if listEquipments[b].equipmentCategory == "bow" and listCharacters[a].characterClass == "ranger":
+                print(listCharacters[a].unitName + " is a ranger!")
+                isWeaponMatched = True
+            # ...
 ```
 
 Or you can comment lines of functioning code to prevent its execution, while keeping it's written text in your script.

@@ -117,8 +117,12 @@ Or if you want to force PyCharm to display more relevant suggestion, or sometime
 
 ### 5. Show document (CTRL + Q)
 
-![image](https://user-images.githubusercontent.com/40296674/151358899-63906dc6-7233-4e45-afd8-5c68294a098e.png)
+To quickly display a function / class / attributes document in a reference where your text cursor currently is, without going to the declaration itself, hold `CTRL` and press `Q`.
 
 ![image](https://user-images.githubusercontent.com/40296674/151358769-e979fa85-a7c6-4155-82da-957fccc204f9.png)
+
+Any document added within a function / class / attribute are written inside a block of triple double quote `"""` like this:
+
+![image](https://user-images.githubusercontent.com/40296674/151358899-63906dc6-7233-4e45-afd8-5c68294a098e.png)
 
 

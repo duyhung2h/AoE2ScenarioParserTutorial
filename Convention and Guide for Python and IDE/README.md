@@ -84,6 +84,13 @@ Be sure to comment often, so others (and future you!) to understand your code. C
 
 Or you can comment lines of functioning code to prevent its execution, while keeping it's written text in your script.
 
+You can also comment more than one line by putting your text inside a block of triple quote `"""`, this is usually used to make document comments about your class / function / attributes.
+
+```
+class Trigger(AoE2Object):
+    """Object for handling a trigger."""
+```
+
 Read more about comments in [W3School](https://www.w3schools.com/python/python_comments.asp)
 
 ## PyCharm useful functionalities you should know
@@ -122,7 +129,7 @@ To quickly display a function / class / attributes document in a reference where
 
 ![image](https://user-images.githubusercontent.com/40296674/151358769-e979fa85-a7c6-4155-82da-957fccc204f9.png)
 
-Any document added within a function / class / attribute are written inside a block of triple double quote `"""` like this:
+Any document added within a function / class / attribute are written inside a block of triple quote `"""` like this:
 
 ![image](https://user-images.githubusercontent.com/40296674/151358899-63906dc6-7233-4e45-afd8-5c68294a098e.png)
 

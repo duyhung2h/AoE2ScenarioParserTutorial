@@ -2,6 +2,7 @@
 These are examples scripts that you can use for AoE2ScenarioParser, made by duyhung2h. [Follow and subscribe to my channel](https://www.youtube.com/channel/UCeClBZG-LQWVmxb0rGo2Qbw) for more Scenario Tricks!
 
 Check out basic tutorial for beginners for ScenarioParser here: [An introduction to AoE2ScenarioParser](https://youtu.be/6dP-pDbFCNw)
+For basic to advanced examples and tricks, check out Scenario Parser tricks and examples playlist on Youtube: [Scenario Parser tricks and examples playlist](https://www.youtube.com/playlist?list=PLM5fWDFeCSjRpbofHBBzKemGcX0mCowMe)
 
 Join the ScenarioParser discord to get your question answered by an admin: [AoE2ScenarioParser Discord Server](https://discord.com/invite/BSU6VS4RFd)
 

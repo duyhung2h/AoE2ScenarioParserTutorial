@@ -1,5 +1,5 @@
 # How to transfer trigger to another map
-This is a tutorial on how to create triggers for all players by combining 2 elements: Copy triggers from `source_scenario` and add them to `transfer_scenario` trigger list, then write a new file named "ScenarioParser - TransferTriggers Parser Result.aoe2scenario"
+This is a tutorial on how to transfer trigger to another map: Copy triggers from `source_scenario` and add them to `transfer_scenario` trigger list, then write a new file named "ScenarioParser - TransferTriggers Parser Result.aoe2scenario"
 ## Step by step
 ```
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario

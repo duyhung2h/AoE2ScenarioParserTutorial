@@ -52,6 +52,12 @@ To transfer trigger between scenarioes, unlike other examples, in this one you n
 
 You can simply choose a range to copy the triggers, or leave the variables `position_start`, `position_end` and `position_transfer` unchanged to copy all the triggers from start to end and paste them at the end of the transfer map. 
 
+```
+    position_start = 0;
+    position_end = source_trigger_manager.triggers.__len__();
+    position_transfer = -1; #Leaving it out (or -1) is placing your triggers at the end
+```
+
 To wipe all the `transfer_scenario` triggers or variables at first simply uncomment these two lines below `shortcut in PyCharm: CTRL + /`(ill-advised)
 
 ```

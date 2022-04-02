@@ -1,4 +1,4 @@
-# How to create triggers for all players
+# How to transfer trigger to another map
 This is a tutorial on how to create triggers for all players by combining 2 elements: Copy triggers from `source_scenario` and add them to `transfer_scenario` trigger list, then write a new file named "ScenarioParser - TransferTriggers Parser Result.aoe2scenario"
 ## Step by step
 ```

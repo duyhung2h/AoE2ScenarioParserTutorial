@@ -5,7 +5,9 @@ scenario_folder = "C:/Users/Admin/Games/Age of Empires 2 DE/76561198148041091/re
 
 # Source scenario to work with
 input_path = scenario_folder + "ScenarioParser - TransferTriggers.aoe2scenario"
+# Transfer scenario to extract triggers into
 transfer_path = scenario_folder + "ScenarioParser - TransferTriggers Transfer.aoe2scenario"
+# New scenario so it wouldn't overwrite the old one
 output_path = scenario_folder + "ScenarioParser - TransferTriggers Parser Result.aoe2scenario"
 
 # declare scenario class

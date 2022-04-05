@@ -7,7 +7,6 @@ from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
 # from itertools import islice
 from component.unit_manager import SPTUnitManager
 
-
 # File & Folder setup
 scenario_folder = "C:/Users/Admin/Games/Age of Empires 2 DE/76561198148041091/resources/_common/scenario/"
 
@@ -154,11 +153,8 @@ source_scenario.write_to_file(output_path)
 source_scenario2 = AoE2DEScenario.from_file(input_path)
 output_scenario = AoE2DEScenario.from_file(output_path)
 
-
-
 spt_unit_manager2 = SPTUnitManager(
     scenario=output_scenario, direction=direction, old_map_size=old_map_size, new_map_size=new_map_size)
-
 
 # output_terrains = output_scenario.map_manager.terrain
 # terrains = source_scenario2.map_manager.terrain
@@ -167,7 +163,7 @@ spt_unit_manager2 = SPTUnitManager(
 # print("terrain length: " + str(output_terrains.__len__()))
 
 spt_unit_manager2.extend_map_iteration2()
-output_scenario = spt_unit_manager.scenario
+output_scenario = spt_unit_manager2.scenario
 
 # if direction == "W":
 #     output_scenario.map_manager.terrain.reverse()
@@ -181,7 +177,6 @@ output_scenario = spt_unit_manager.scenario
 #         print("transfer")
 #         output_terrains.insert(
 #             0, output_terrains.pop(output_terrains.__len__()-1))
-
 
 
 # if direction == "N" and new_map_size < old_map_size:

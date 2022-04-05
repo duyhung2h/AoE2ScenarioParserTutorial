@@ -1,5 +1,6 @@
 # How to extend / shrink map to a certain direction (N|S|W|E|Center) 
 This is a tutorial on how to extend / shrink map using an advacedly written script. Don't fret it, just run the program! Final result file will be named "ScenarioParser - ChangeMapSize Parser Result2.aoe2scenario"
+
 I might compile this into a separate program - apart from the parser in the future. For now, enjoy!
 ## Step by step
 

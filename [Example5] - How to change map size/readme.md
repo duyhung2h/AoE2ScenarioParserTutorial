@@ -2,7 +2,11 @@
 This is a tutorial on how to extend / shrink map using an advacedly written script. Don't fret it, just run the program! Final result file will be named "ScenarioParser - ChangeMapSize Parser Result2.aoe2scenario"
 
 I might compile this into a separate program - apart from the parser in the future. For now, enjoy!
-## Step by step
+## Step by step (How it works)
+
+Terrains / unit location / trigger areas, locations will be retained in their core location after extension / shrinkage.
+
+![image](https://user-images.githubusercontent.com/40296674/161837018-bb22140f-578e-40f3-8ce5-b984f36f824e.png)
 
 
 ... You can extend to many different direction with 8 different options:

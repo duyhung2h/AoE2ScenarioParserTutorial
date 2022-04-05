@@ -42,12 +42,23 @@ class SPTUnitManager:
                     unit.x = unit.x + (self.new_map_size - self.old_map_size)
                     unit.y = unit.y + (self.new_map_size - self.old_map_size)
             if self.direction == "N":
-                if unit.x < -(self.new_map_size - self.old_map_size) or unit.y > self.new_map_size:
-                    print()
-                    # print("Out of bound unit removed!" + str(unit))
-                    # self.scenario.unit_manager.remove_unit(unit=unit)
-                else:
-                    unit.y = unit.y + (self.new_map_size - self.old_map_size)
+                if self.new_map_size > self.old_map_size:
+                    if unit.x < -(self.new_map_size - self.old_map_size) or unit.y > self.new_map_size:
+                        print("Out of bound unit removed!" + str(unit))
+                        self.scenario.unit_manager.remove_unit(unit=unit)
+                    else:
+                        unit.y = unit.y + (self.new_map_size - self.old_map_size)
+                if self.new_map_size < self.old_map_size:
+                    if unit.x > self.new_map_size or unit.y > self.old_map_size:
+                        print()
+                        print("Out of bound unit removed!" + str(unit))
+                        self.scenario.unit_manager.remove_unit(unit=unit)
+                    else:
+                        print()
+                        unit.y = unit.y - (self.old_map_size - self.new_map_size)
+                        if unit.y < 0:
+                            print("Out of bound unit removed 2!" + str(unit))
+                            self.scenario.unit_manager.remove_unit(unit=unit)
             if self.direction == "S":
                 if unit.x < -(self.new_map_size - self.old_map_size) or unit.y > self.new_map_size:
                     print("Out of bound unit removed!" + str(unit))
@@ -92,20 +103,16 @@ class SPTUnitManager:
                                 condition.area_y2 + (self.new_map_size - self.old_map_size))
 
     def extend_map_iteration1(self):
-        if self.direction == "W" or (self.direction == "S" and self.new_map_size > self.old_map_size):
+        if self.direction == "W" or (self.direction == "S" and self.new_map_size > self.old_map_size) or (self.direction == "N" and self.new_map_size < self.old_map_size):
             self.scenario.map_manager.terrain.reverse()
         if self.direction != "N" and self.direction != "E" and (self.direction != "S" or (self.direction == "S" and self.new_map_size > self.old_map_size)):
             self.scenario.map_manager.map_size = self.new_map_size
             self.scenario.map_manager.terrain.reverse()
         if self.direction == "N" and self.new_map_size > self.old_map_size:
             self.scenario.map_manager.map_size = self.new_map_size
-        if self.direction == "S" and self.new_map_size < self.old_map_size:
+        if (self.direction == "S" or self.direction == "N") and self.new_map_size < self.old_map_size:
             self.scenario.map_manager.map_size = self.old_map_size + \
                 (self.old_map_size-self.new_map_size)
-        if self.direction == "N" and self.new_map_size < self.old_map_size:
-            self.scenario.map_manager.map_size = self.old_map_size + \
-                (self.old_map_size-self.new_map_size)
-            self.scenario.map_manager.terrain.reverse()
         if self.direction == "E":
             self.scenario.map_manager.map_size = self.new_map_size
 
@@ -133,6 +140,7 @@ class SPTUnitManager:
                 self.scenario.map_manager.terrain.append(
                     self.scenario.map_manager.terrain.pop(0))
         if self.direction == "N" and self.new_map_size < self.old_map_size:
+            self.scenario.map_manager.terrain.reverse()
             for terrainId in range(0, (self.old_map_size-self.new_map_size)*(self.old_map_size + (self.old_map_size-self.new_map_size)), 1):
                 print("transfer")
                 self.scenario.map_manager.terrain.append(
@@ -140,6 +148,7 @@ class SPTUnitManager:
             self.scenario.map_manager.map_size = self.old_map_size
             self.scenario.map_manager.terrain.reverse()
             self.scenario.map_manager.map_size = self.new_map_size
+            self.scenario.map_manager.terrain.reverse()
             # print("transfer")
             # print(self.scenario.map_manager.terrain.__len__())
             # self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[:(self.new_map_size-self.old_map_size)*self.new_map_size]

@@ -13,12 +13,12 @@ def resource_path(relative_path):
 
 # File & Folder setup
 try:
-    scenario_folder = "C:/Users/Admin/Gamses/Age of Empires 2 DE/76561198148041091/resources/_common/scenario/"
+    scenario_folder = "C:/Users/Admin/Games/Age of Empires 2 DE/76561198148041091/resources/_common/scenario/"
     source_scenario = AoE2DEScenario.from_file(
         scenario_folder + "ScenarioParser - ChangeMapSize.aoe2scenario")
 except:
     scenario_folder = resource_path("")
-    print("cannot found main scenario folder. redirect to base dir." + scenario_folder)
+    print("\ncannot find main scenario folder. redirect to base dir: " + scenario_folder)
 
 # Source scenario to work with
 input_path = scenario_folder + "ScenarioParser - ChangeMapSize.aoe2scenario"

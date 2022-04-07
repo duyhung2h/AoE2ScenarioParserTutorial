@@ -5,6 +5,9 @@ If you have any example of your own, please send me a [pull request by clicking 
 
 Check out basic tutorial for beginners for ScenarioParser here: [An introduction to AoE2ScenarioParser](https://youtu.be/6dP-pDbFCNw)
 
+[![An introduction to AoE2ScenarioParser](https://user-images.githubusercontent.com/40296674/162165549-97f1a1ad-de74-4a1e-aaf9-047d008afe31.png)](https://youtu.be/6dP-pDbFCNw "Click on this image to watch my tutorial video!")
+
+
 For basic to advanced examples and tricks, check out Scenario Parser tricks and examples playlist on Youtube: [Scenario Parser tricks and examples playlist](https://www.youtube.com/playlist?list=PLM5fWDFeCSjRpbofHBBzKemGcX0mCowMe)
 
 Join the ScenarioParser discord to get your question answered by an admin: [AoE2ScenarioParser Discord Server](https://discord.com/invite/BSU6VS4RFd)

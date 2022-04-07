@@ -1,6 +1,8 @@
 # AoE2ScenarioParserTutorial
 These are examples scripts that you can use for AoE2ScenarioParser, made by duyhung2h. [Follow and subscribe to my channel](https://www.youtube.com/channel/UCeClBZG-LQWVmxb0rGo2Qbw) for more Scenario Tricks!
 
+If you have any example of your own, please send me a [pull request by clicking here](https://github.com/duyhung2h/AoE2ScenarioParserTutorial/pulls), or contact me if you would like your examples to be featured!
+
 Check out basic tutorial for beginners for ScenarioParser here: [An introduction to AoE2ScenarioParser](https://youtu.be/6dP-pDbFCNw)
 
 For basic to advanced examples and tricks, check out Scenario Parser tricks and examples playlist on Youtube: [Scenario Parser tricks and examples playlist](https://www.youtube.com/playlist?list=PLM5fWDFeCSjRpbofHBBzKemGcX0mCowMe)

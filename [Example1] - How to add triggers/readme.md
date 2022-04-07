@@ -3,7 +3,7 @@ This is a tutorial on how to add triggers using the Parser. Simply use the templ
 
 Click on this image to watch my tutorial video in its correct timestamp:
 
-[![How to add triggers](https://user-images.githubusercontent.com/40296674/162162679-74e44fb7-900d-4986-8079-675ee7a3b535.png)](https://youtu.be/6dP-pDbFCNw?t=662)
+[![How to add triggers](https://user-images.githubusercontent.com/40296674/162162679-74e44fb7-900d-4986-8079-675ee7a3b535.png)](https://youtu.be/6dP-pDbFCNw?t=662 "Click on this image to watch my tutorial video!")
 
 ## Step by step
 ```

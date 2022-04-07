@@ -1,5 +1,10 @@
 # How to add triggers
 This is a tutorial on how to add triggers using the Parser. Simply use the template python script or use your own script once you got your scenario file set up.
+
+Click on this image to watch my tutorial video in its correct timestamp:
+
+[![How to add triggers](https://user-images.githubusercontent.com/40296674/162162679-74e44fb7-900d-4986-8079-675ee7a3b535.png)](https://youtu.be/6dP-pDbFCNw?t=662)
+
 ## Step by step
 ```
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario

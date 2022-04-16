@@ -26,5 +26,5 @@ Terrains / unit location / trigger areas, locations will be retained in their co
 (16x16 map, the recommended minimum)
 
 ![image](https://user-images.githubusercontent.com/40296674/163692658-63989367-c5e5-4aeb-8c2d-173e8dbd0035.png)
-(6x6 map, could be really unstable if you have any unit clipping through the map borders or AI would crash your game by their weird pathing)
+(6x6 map, the ABSOLUTE MINIMUM, could be really unstable if you have any unit clipping through the map borders or AI would crash your game by their weird pathing)
 

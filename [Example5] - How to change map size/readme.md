@@ -5,8 +5,9 @@ I might compile this into a separate program - apart from the parser in the futu
 ## Step by step (How it works)
 
 Terrains / unit location / trigger areas, locations will be retained in their core location after extension / shrinkage.
+(16x16) to (480x480) is the maximum dimension, anything above or below that value your map will crash when you test it (not in editor)
 
-![image](https://user-images.githubusercontent.com/40296674/161837018-bb22140f-578e-40f3-8ce5-b984f36f824e.png)
+![image](https://user-images.githubusercontent.com/40296674/163688921-b8285470-c196-4e76-a920-129a27623e0f.png)
 
 
 ... You can extend to many different direction with 8 different options:

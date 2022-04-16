@@ -20,6 +20,7 @@ Terrains / unit location / trigger areas, locations will be retained in their co
 ## Important note: 
 - Remove any unwanted unit that clip through the map borders, they can probably cause crash when you load your scenarios.
 - Possible map size range is from (16x16) to (480x480). Any map size above or below that range will crash after you test it.
+- Don't leave any player to have 0 unit in the map if the newly generated map is small - Scenario will crash if the map attempted to generate a `Town Center` for those said players, that could clips through map's borders.
 
 ![image](https://user-images.githubusercontent.com/40296674/163688623-971237f8-1f53-4812-84c8-6dff13a30806.png)
 (16x16 map, the absolute minimum)

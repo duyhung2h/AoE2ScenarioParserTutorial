@@ -23,5 +23,8 @@ Terrains / unit location / trigger areas, locations will be retained in their co
 - Don't leave any player to have 0 unit in the map if the newly generated map is small - Scenario will crash if the map attempted to generate a `Town Center` for those said players, that could clips through map's borders.
 
 ![image](https://user-images.githubusercontent.com/40296674/163688623-971237f8-1f53-4812-84c8-6dff13a30806.png)
-(16x16 map, the absolute minimum)
+(16x16 map, the recommended minimum)
+
+![image](https://user-images.githubusercontent.com/40296674/163692658-63989367-c5e5-4aeb-8c2d-173e8dbd0035.png)
+(6x6 map, could be really unstable if you have any unit clipping through the map borders or AI would crash your game by their weird pathing)
 

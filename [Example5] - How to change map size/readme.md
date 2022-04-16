@@ -16,14 +16,10 @@ Terrains / unit location / trigger areas, locations will be retained in their co
 ![image](https://user-images.githubusercontent.com/40296674/161836560-77319e49-7b32-4540-a56c-8bb5ad98d3db.png)
 
 
-This is a 10x10 shrunken map.
-
-![image](https://user-images.githubusercontent.com/40296674/161836277-0a59244a-ee3b-4099-87d3-7b57f7cf412f.png)
-
-This is a 1x1 shrunken map. Have fun and go wild!
-
-![image](https://user-images.githubusercontent.com/40296674/161836165-bfa56ac9-a93b-4909-9e79-1d66214fc418.png)
-
 ## Important note: 
 - Remove any unwanted unit that clip through the map borders, they can probably cause crash when you load your scenarios.
 - Possible map size range is from (16x16) to (480x480). Any map size above or below that range will crash after you test it.
+
+![image](https://user-images.githubusercontent.com/40296674/163688623-971237f8-1f53-4812-84c8-6dff13a30806.png)
+(16x16 map, the absolute minimum)
+

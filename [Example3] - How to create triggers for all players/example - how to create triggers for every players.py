@@ -19,7 +19,7 @@ source_trigger_manager = source_scenario.trigger_manager
 triggerSource = source_trigger_manager.triggers[0]
 triggerSource.name = "example "
 triggerSource.new_effect.activate_trigger(trigger_id=triggerSource.trigger_id + 1)
-for playerId in range (1, 9, 1):
+for playerId in range(1, 9, 1):
     triggerCopy = source_trigger_manager.copy_trigger(trigger_select=triggerSource.trigger_id + playerId - 1)
     triggerCopy.enabled = False
     triggerCopy.name = triggerSource.name + " P" + str(playerId)

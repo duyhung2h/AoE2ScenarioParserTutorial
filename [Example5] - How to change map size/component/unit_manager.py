@@ -103,57 +103,60 @@ class SPTUnitManager:
                                 condition.area_y2 + (self.new_map_size - self.old_map_size))
 
     def extend_map_iteration1(self):
-        if self.direction == "W" or (self.direction == "S" and self.new_map_size > self.old_map_size) or (self.direction == "N" and self.new_map_size < self.old_map_size):
+        # count west side too
+        if self.direction == "W" or (self.direction == "S" and self.new_map_size > self.old_map_size) or (
+                self.direction == "N" and self.new_map_size < self.old_map_size):
             self.scenario.map_manager.terrain.reverse()
-        if self.direction != "N" and self.direction != "E" and (self.direction != "S" or (self.direction == "S" and self.new_map_size > self.old_map_size)):
+        # count west side too
+        if self.direction != "N" and self.direction != "E" and (
+                self.direction != "S" or (self.direction == "S" and self.new_map_size > self.old_map_size)):
             self.scenario.map_manager.map_size = self.new_map_size
             self.scenario.map_manager.terrain.reverse()
+        # expand N map size before transfer tiles
         if self.direction == "N" and self.new_map_size > self.old_map_size:
             self.scenario.map_manager.map_size = self.new_map_size
+        # shrink N and S map size before transfer tiles
         if (self.direction == "S" or self.direction == "N") and self.new_map_size < self.old_map_size:
             self.scenario.map_manager.map_size = self.old_map_size + \
-                (self.old_map_size-self.new_map_size)
+                                                 (self.old_map_size - self.new_map_size)
+        # east side: Just simply expand / shrink (default)
         if self.direction == "E":
             self.scenario.map_manager.map_size = self.new_map_size
 
     def extend_map_iteration2(self):
-        if self.direction == "W":
-            print()
-            # self.scenario.map_manager.terrain.reverse()
+        amount_of_transfer_tiles = 0
+        # expand N
         if self.direction == "N" and self.new_map_size > self.old_map_size:
-            for terrainId in range(0, (self.new_map_size-self.old_map_size)*self.new_map_size, 1):
-                print("transfer")
-                self.scenario.map_manager.terrain.insert(
-                    0, self.scenario.map_manager.terrain.pop(self.scenario.map_manager.terrain.__len__()-1))
-        if self.direction == "S" and self.new_map_size < self.old_map_size:
-            for terrainId in range(0, (self.old_map_size-self.new_map_size)*(self.old_map_size + (self.old_map_size-self.new_map_size)), 1):
-                print("transfer")
-                self.scenario.map_manager.terrain.insert(
-                    0, self.scenario.map_manager.terrain.pop(self.scenario.map_manager.terrain.__len__()-1))
-            self.scenario.map_manager.terrain.reverse()
-            self.scenario.map_manager.map_size = self.old_map_size
-            self.scenario.map_manager.terrain.reverse()
-            self.scenario.map_manager.map_size = self.new_map_size
-        if self.direction == "S" and self.new_map_size > self.old_map_size:
-            for terrainId in range(0, (self.new_map_size-self.old_map_size)*self.new_map_size, 1):
-                print("transfer")
-                self.scenario.map_manager.terrain.append(
-                    self.scenario.map_manager.terrain.pop(0))
+            amount_of_transfer_tiles = (self.new_map_size - self.old_map_size) * self.new_map_size
+            self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[
+                                                -amount_of_transfer_tiles:] + self.scenario.map_manager.terrain[
+                                                                             :-amount_of_transfer_tiles]
+        # shrink N
         if self.direction == "N" and self.new_map_size < self.old_map_size:
+            amount_of_transfer_tiles = (self.old_map_size - self.new_map_size) * (
+                    self.old_map_size + (self.old_map_size - self.new_map_size))
             self.scenario.map_manager.terrain.reverse()
-            for terrainId in range(0, (self.old_map_size-self.new_map_size)*(self.old_map_size + (self.old_map_size-self.new_map_size)), 1):
-                print("transfer")
-                self.scenario.map_manager.terrain.append(
-                    self.scenario.map_manager.terrain.pop(0))
+            self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[
+                                                amount_of_transfer_tiles:] + self.scenario.map_manager.terrain[
+                                                                             :amount_of_transfer_tiles]
             self.scenario.map_manager.map_size = self.old_map_size
             self.scenario.map_manager.terrain.reverse()
             self.scenario.map_manager.map_size = self.new_map_size
             self.scenario.map_manager.terrain.reverse()
-            # print("transfer")
-            # print(self.scenario.map_manager.terrain.__len__())
-            # self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[:(self.new_map_size-self.old_map_size)*self.new_map_size]
-            # print(self.scenario.map_manager.terrain.__len__())
-            # self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[
-            #     (self.new_map_size-self.old_map_size)*self.new_map_size:]
-            # print(self.scenario.map_manager.terrain.__len__())
-            # input(math.pow(self.new_map_size, 2))
+        # expand S
+        if self.direction == "S" and self.new_map_size > self.old_map_size:
+            amount_of_transfer_tiles = (self.new_map_size - self.old_map_size) * self.new_map_size
+            self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[
+                                                amount_of_transfer_tiles:] + self.scenario.map_manager.terrain[
+                                                                             :amount_of_transfer_tiles]
+        # shrink S
+        if self.direction == "S" and self.new_map_size < self.old_map_size:
+            amount_of_transfer_tiles = (self.old_map_size - self.new_map_size) * (
+                    self.old_map_size + (self.old_map_size - self.new_map_size))
+            self.scenario.map_manager.terrain = self.scenario.map_manager.terrain[
+                                                -amount_of_transfer_tiles:] + self.scenario.map_manager.terrain[
+                                                                             :-amount_of_transfer_tiles]
+            self.scenario.map_manager.terrain.reverse()
+            self.scenario.map_manager.map_size = self.old_map_size
+            self.scenario.map_manager.terrain.reverse()
+            self.scenario.map_manager.map_size = self.new_map_size

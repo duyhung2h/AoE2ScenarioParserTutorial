@@ -35,6 +35,8 @@ input_path = scenario_folder + input_scenario_nanme + ".aoe2scenario"
 output_path = scenario_folder + input_scenario_nanme + \
     " Parser Result" + ".aoe2scenario"
 
+''''''
+
 # declare scenario class
 source_scenario = AoE2DEScenario.from_file(input_path)
 

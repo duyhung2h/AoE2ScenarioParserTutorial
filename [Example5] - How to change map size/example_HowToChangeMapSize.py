@@ -10,29 +10,31 @@ def resource_path(relative_path):
         os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
+'''
+File & Folder setup
+Copy the file name (click on the line and CTRL + C):
 
-# File & Folder setup
+ScenarioParser - ModifyAllUnits
+Tales of Tenebria version 0v18v10 Parser Result2
+'''
+
+input_scenario_nanme = input(
+    'Please enter the scenario name (spare the .aoe2scenario extension): ')
 try:
     scenario_folder = "C:/Users/Admin/Games/Age of Empires 2 DE/76561198148041091/resources/_common/scenario/"
     source_scenario = AoE2DEScenario.from_file(
-        scenario_folder + "ScenarioParser - ChangeMapSize.aoe2scenario")
-except:
+        scenario_folder + input_scenario_nanme + ".aoe2scenario")
+except FileNotFoundError:
     scenario_folder = resource_path("")
     print("\ncannot find main scenario folder. redirect to base dir: " + scenario_folder)
 
 # Source scenario to work with
-input_path = scenario_folder + "ScenarioParser - ChangeMapSize.aoe2scenario"
-# input_path = scenario_folder + "Tales of Tenebria version 0v11 S.aoe2scenario"
+input_path = scenario_folder + input_scenario_nanme + ".aoe2scenario"
 # Transfer scenario to extract triggers into
-output_path = scenario_folder + \
-              "ScenarioParser - ChangeMapSize Parser Result.aoe2scenario"
-output_path2 = scenario_folder + \
-               "ScenarioParser - ChangeMapSize Parser Result2.aoe2scenario"
-# output_path2 = scenario_folder + \
-# "Tales of Tenebria version 0v11 Parser Result2.aoe2scenario"
-
-# declare scenario class
-source_scenario = AoE2DEScenario.from_file(input_path)
+output_path = scenario_folder + input_scenario_nanme + \
+              " Parser Result" + ".aoe2scenario"
+output_path2 = scenario_folder + input_scenario_nanme + \
+              " Parser Result2" + ".aoe2scenario"
 
 # declare map manager to work with map
 source_map_manager = source_scenario.map_manager

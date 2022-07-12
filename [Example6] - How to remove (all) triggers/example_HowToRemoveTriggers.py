@@ -13,10 +13,10 @@ def resource_path(relative_path):
 
 '''
 File & Folder setup
-Copy the file name:
+Copy the file name (click on the line and CTRL + C):
 
 ScenarioParser - RemoveTriggers
-Tales of Tenebria version 0v17
+Tales of Tenebria version 0v18
 '''
 
 input_scenario_nanme = input(
@@ -57,12 +57,15 @@ position_end = len(saved_triggers) - 0
 
 # remove triggers
 # target_trigger_manager.import_triggers(source_trigger_manager.triggers[position_start:position_end], -1)
+source_trigger_manager.triggers = saved_triggers[30:position_end]
 # source_trigger_manager.triggers = saved_triggers[30:90]
 # source_trigger_manager.triggers = saved_triggers[90:120]
-source_trigger_manager.triggers = saved_triggers[0:320] # co trigger nao do lam crash khi bo no di, giua 120 va 320
-# giua 320 va pos end: co trigger(s) lam lag game
+# source_trigger_manager.triggers = saved_triggers[0:40] + saved_triggers[500:600] # co trigger nao do lam crash khi bo no di, giua 200 va 320
+# giua 440 va 450: co trigger count team members: crash game in 40 seconds
+# giua 450 va 500: co trigger(s) lam lag game
 # source_trigger_manager.triggers = source_trigger_manager.triggers + saved_triggers[400:position_end-17]
-# source_trigger_manager.triggers = source_trigger_manager.triggers + saved_triggers[position_start:position_end]
+source_trigger_manager.add_trigger("99999999999999999999999999999999999999999")
+# source_trigger_manager.triggers = source_trigger_manager.triggers + saved_triggers[1000:position_end] # start tung la 400
 
 # Final step: write a modified scenario class to a new scenario file
 source_scenario.write_to_file(output_path)

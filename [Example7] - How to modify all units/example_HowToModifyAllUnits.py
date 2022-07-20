@@ -49,7 +49,7 @@ source_scenario = AoE2DEScenario.from_file(input_path)
 source_trigger_manager = source_scenario.trigger_manager
 
 # Trigger name
-trigger_name = "||example_HowToModifyAllUnits.py||"
+trigger_name = "||example_HowToModifyBatchOfTriggers.py||"
 
 triggerStart = 0
 triggerEnd = 0

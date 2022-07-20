@@ -5,6 +5,8 @@ from AoE2ScenarioParser.objects.support.trigger_select import TriggerSelect
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
 from AoE2ScenarioParser.datasets.trigger_lists import *
 from buildings import BuildingInfo
+from buildings_rubble import BuildingRubbleInfo
+from AoE2ScenarioParser.datasets.units import UnitInfo
 from AoE2ScenarioParser.datasets.units import UnitInfo
 
 
@@ -20,7 +22,7 @@ File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
 ScenarioParser - ModifyAllUnits
-Tales of Tenebria version 0v18v4
+Tales of Tenebria version 0v18v22
 Tales of Tenebria version 0v18v3 Parser Result
 '''
 
@@ -51,8 +53,8 @@ source_trigger_manager = source_scenario.trigger_manager
 # Trigger name
 trigger_name = "||example_HowToModifyBatchOfTriggers.py||"
 
-triggerStart = 0
-triggerEnd = 0
+triggerStart = -1
+triggerEnd = -1
 # remove past triggers
 for triggerId in range(0, len(source_trigger_manager.triggers), 1):
     # select old modify trigger and remove it
@@ -68,12 +70,13 @@ print(source_trigger_manager.triggers[triggerEnd])
 # source_trigger_manager.triggers = source_trigger_manager.triggers[:triggerStart]+source_trigger_manager.triggers[triggerEnd+1:]
 # for trigger in source_trigger_manager.triggers[:triggerStart]+source_trigger_manager.triggers[triggerEnd+1:]:
 #     print(trigger.name)
-for triggerId in range(int(triggerStart), int(triggerEnd + 1), 1):
-    print(source_trigger_manager.triggers[triggerStart].name)
-    source_trigger_manager.remove_trigger(
-        trigger_select=TriggerSelect.index(source_trigger_manager.triggers[triggerStart].trigger_id))
+if triggerStart > -1:
+    for triggerId in range(int(triggerStart), int(triggerEnd + 1), 1):
+        print(source_trigger_manager.triggers[triggerStart].name)
+        source_trigger_manager.remove_trigger(
+            trigger_select=TriggerSelect.index(source_trigger_manager.triggers[triggerStart].trigger_id))
+    print("deletion done")
 
-print("deletion done")
 # modify unit from id 0-1800
 source_trigger_manager.add_trigger(trigger_name + "start")
 # for modify_trigger_id in range(0, 1800, 1):
@@ -86,42 +89,55 @@ source_trigger_manager.add_trigger(trigger_name + "start")
 
 # modify unit from an unit id list
 key = 0
-# modify buildings
-source_trigger_manager.add_trigger("===BUILDINGS===")
-for playerId in range(3, 4, 1):
+
+# # modify buildings
+# source_trigger_manager.add_trigger("===BUILDINGS===")
+# for playerId in range(3, 4, 1):
+#     key = key + 1
+#     modify_trigger = source_trigger_manager.add_trigger(trigger_name + str(key))
+#     modify_trigger.new_condition.timer(timer=key)
+#     for building in BuildingInfo:
+#         if building.IS_GAIA_ONLY is False:
+#             modify_trigger.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
+#                                                        object_list_unit_id=building.ID,
+#                                                        object_attributes=ObjectAttribute.FOG_VISIBILITY)
+# # modify units
+# source_trigger_manager.add_trigger("===UNITS===")
+# for playerId in range(6, 7, 1):
+#     key = key + 1
+#     modify_trigger = source_trigger_manager.add_trigger(trigger_name + str(key))
+#     modify_trigger.new_condition.timer(timer=key)
+#     for unit in UnitInfo:
+#         if unit.IS_GAIA_ONLY is False:
+#             print(unit.ID)
+#             modify_trigger.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
+#                                                        object_list_unit_id=unit.ID,
+#                                                        object_attributes=ObjectAttribute.FOG_VISIBILITY)
+# source_trigger_manager.add_trigger("===UNITSP4===")
+# for playerId in range(4, 5, 1):
+#     key = key + 1
+#     P4_CinemaENABLE = source_trigger_manager.add_trigger(trigger_name + "P4_CinemaENABLE", enabled=True)
+#     # P2_CinemaDISABLE = source_trigger_manager.add_trigger(trigger_name + "P2_CinemaDISABLE", enabled=False)
+#     P4_CinemaENABLE.new_condition.variable_value(variable=36, quantity=1)
+#     for unit in UnitInfo:
+#         if unit.IS_GAIA_ONLY is False:
+#             print(unit.ID)
+#             P4_CinemaENABLE.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
+#                                                         object_list_unit_id=unit.ID,
+#                                                         object_attributes=ObjectAttribute.FOG_VISIBILITY)
+
+
+# modify building rubbles (GAIA)
+source_trigger_manager.add_trigger("===GAIABUILDINGSRUBBLES===")
+for playerId in range(0, 1, 1):
     key = key + 1
     modify_trigger = source_trigger_manager.add_trigger(trigger_name + str(key))
     modify_trigger.new_condition.timer(timer=key)
-    for building in BuildingInfo:
+    for building in BuildingRubbleInfo:
         if building.IS_GAIA_ONLY is False:
             modify_trigger.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
                                                        object_list_unit_id=building.ID,
                                                        object_attributes=ObjectAttribute.FOG_VISIBILITY)
-# modify units
-source_trigger_manager.add_trigger("===UNITS===")
-for playerId in range(6, 7, 1):
-    key = key + 1
-    modify_trigger = source_trigger_manager.add_trigger(trigger_name + str(key))
-    modify_trigger.new_condition.timer(timer=key)
-    for unit in UnitInfo:
-        if unit.IS_GAIA_ONLY is False:
-            print(unit.ID)
-            modify_trigger.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
-                                                       object_list_unit_id=unit.ID,
-                                                       object_attributes=ObjectAttribute.FOG_VISIBILITY)
-source_trigger_manager.add_trigger("===UNITSP4===")
-for playerId in range(4, 5, 1):
-    key = key + 1
-    P4_CinemaENABLE = source_trigger_manager.add_trigger(trigger_name + "P4_CinemaENABLE", enabled=True)
-    # P2_CinemaDISABLE = source_trigger_manager.add_trigger(trigger_name + "P2_CinemaDISABLE", enabled=False)
-    P4_CinemaENABLE.new_condition.variable_value(variable=36, quantity=1)
-    for unit in UnitInfo:
-        if unit.IS_GAIA_ONLY is False:
-            print(unit.ID)
-            P4_CinemaENABLE.new_effect.modify_attribute(quantity=1, operation=Operation.SET, source_player=playerId,
-                                                        object_list_unit_id=unit.ID,
-                                                        object_attributes=ObjectAttribute.FOG_VISIBILITY)
-
 source_trigger_manager.add_trigger(trigger_name + "end")
 # source_trigger_manager.triggers = source_trigger_manager.triggers + saved_triggers[1000:position_end] # start tung la 400
 

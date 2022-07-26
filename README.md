@@ -1,4 +1,7 @@
 # AoE2ScenarioParserTutorial
+
+If you are new to Python check Alian's basic guide to Python here: [Intro to Python](https://divy1211.github.io/IntroToPython/)
+
 These are examples scripts that you can use for AoE2ScenarioParser, made by duyhung2h. [Follow and subscribe to my channel](https://www.youtube.com/channel/UCeClBZG-LQWVmxb0rGo2Qbw) for more Scenario Tricks!
 
 If you have any example of your own, please send me a [pull request by clicking here](https://github.com/duyhung2h/AoE2ScenarioParserTutorial/pulls), or contact me if you would like your examples to be featured!

@@ -15,7 +15,11 @@ File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
 ScenarioParser - ModifyAllUnits
-Tales of Tenebria version 0v18v11 Parser Result2
+The Awakening
+The Awakening Parser Result2
+
+340 - S 
+255 - W
 '''
 
 input_scenario_nanme = input(

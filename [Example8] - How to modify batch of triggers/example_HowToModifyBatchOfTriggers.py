@@ -6,6 +6,7 @@ from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
 import re
 from AoE2ScenarioParser.datasets.trigger_lists import *
 from AoE2ScenarioParser.datasets.conditions import ConditionId
+from AoE2ScenarioParser.datasets.effects import EffectId
 from AoE2ScenarioParser.datasets.units import UnitInfo
 
 
@@ -21,7 +22,7 @@ File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
 ScenarioParser - ModifyAllUnits
-Tales of Tenebria version 0v18v20
+Tales of Tenebria version 0v18v54
 Tales of Tenebria version 0v18v3 Parser Result
 '''
 
@@ -99,34 +100,48 @@ while(True):
 
 fetched_trigger_list = source_trigger_manager.triggers[triggerStart: triggerEnd]
 # print(fetched_trigger_list)
-print(source_trigger_manager.triggers[triggerStart])
-print(source_trigger_manager.triggers[triggerEnd])
+# print(source_trigger_manager.triggers[triggerStart])
+# print(source_trigger_manager.triggers[triggerEnd])
 
 # start modifying trigger (write your own code)
 # example: modify all triggers that marked with [ ] at the top of their name
 
-# for trigger in fetched_trigger_list:
-#     regex = "(\[\w\]).+"
-#     if re.search(regex, trigger.name):
-#         print(str(trigger.trigger_id) + ": " + trigger.name)
-#         # Get existing conditions (check if it existed)
-#         add_condition = True
-#         for condition in trigger.conditions:
-#             print("condition name: " + str(condition.condition_type) + " | quantity: " + str(condition.quantity) + " | variable: " + str(condition.variable))
-#             if condition.condition_type == ConditionId.VARIABLE_VALUE and condition.variable == 36:
-#                 if condition.quantity == 0:
-#                     add_condition = False
-#         # add condition
-#         if add_condition:
-#             trigger.new_condition.variable_value(variable=36, quantity=0)
-#         # trigger.new_effect()
+'''
+for trigger in fetched_trigger_list:
+    regex = "(\[\w\]).+"
+    if re.search(regex, trigger.name):
+        print(str(trigger.trigger_id) + ": " + trigger.name)
+        # Get existing conditions (check if it existed)
+        add_condition = True
+        for condition in trigger.conditions:
+            print("condition name: " + str(condition.condition_type) + " | quantity: " + str(condition.quantity) + " | variable: " + str(condition.variable))
+            if condition.condition_type == ConditionId.VARIABLE_VALUE and condition.variable == 36:
+                if condition.quantity == 0:
+                    add_condition = False
+        # add condition
+        if add_condition:
+            trigger.new_condition.variable_value(variable=36, quantity=0)
+        # trigger.new_effect()
+'''
 
 # example: Find all trigger with short description
 
+'''
 for trigger in fetched_trigger_list:
     if trigger.short_description != "":
         print(str(trigger.trigger_id) + ": " + trigger.name)
         print("Trigger short description:" + trigger.short_description)
+'''
+
+# example: Find all trigger with activate trigger to a certain id
+
+
+for trigger in fetched_trigger_list:
+    for effect in trigger.effects:
+        if effect.effect_type == EffectId.ACTIVATE_TRIGGER:
+            if effect.trigger_id == 1614:  # insert id here
+                print("ID: " + str(trigger.trigger_id) + ", Trigger name: " + trigger.name)
+
 
 # Final step: write a modified scenario class to a new scenario file
 source_scenario.write_to_file(output_path)

@@ -7,7 +7,6 @@ from AoE2ScenarioParser.datasets.trigger_lists import *
 from buildings import BuildingInfo
 from buildings_rubble import BuildingRubbleInfo
 from AoE2ScenarioParser.datasets.units import UnitInfo
-from AoE2ScenarioParser.datasets.units import UnitInfo
 
 
 def resource_path(relative_path):

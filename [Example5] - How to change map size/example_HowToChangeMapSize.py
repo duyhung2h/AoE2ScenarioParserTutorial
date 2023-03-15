@@ -17,8 +17,9 @@ Copy the file name (click on the line and CTRL + C):
 ScenarioParser - ModifyAllUnits
 The Awakening
 The Awakening Parser Result2
+12warlords 0v1v30 Parser Result
 
-340 - S 
+200 - 
 255 - W
 '''
 

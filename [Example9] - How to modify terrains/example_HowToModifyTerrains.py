@@ -1,6 +1,6 @@
 import os
-import sys
 import random
+import sys
 
 from AoE2ScenarioParser.scenarios.aoe2_de_scenario import AoE2DEScenario
 
@@ -17,7 +17,7 @@ File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
 12warlords modified
-12warlords 0v1v8
+12warlords 0v1v30
 '''
 
 input_scenario_nanme = input(
@@ -46,6 +46,7 @@ source_trigger_manager = source_scenario.trigger_manager
 
 ''''''
 
+# get all the terrains tiles (compiled in a list) in the map
 originalTerrains = source_scenario.map_manager.terrain
 
 '''
@@ -55,27 +56,103 @@ Find water bridge and change it to water shallow
 # Allowed terrain
 allowed_terrains = [28, 1]
 
-# Terrain to randomly change into
-random_terrains_added_in = [1, 4, 54, 59, 90, 58]
+# Terrain to randomly layer on
+random_terrains_layered_on = [1, 54, 59, 58, 23]
 
 for terrain in originalTerrains:
     for allowed_terrain in allowed_terrains:
         if terrain.terrain_id == allowed_terrain:
             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
             terrain.terrain_id = 1
-            terrain.layer = random.choice(random_terrains_added_in)
+            terrain.layer = random.choice(random_terrains_layered_on)
 
-'''
-!!! HOW THIS WORKS: (This is a script that will turn all river shores to be gravels)
-Scan all water in the map, after identify a water tile it will scan adjacent tiles.
-If the adjacent tiles happens to be water, ignore it. Otherwise, turn it into gravel.
-'''
+# '''
+# Find water shallow and change it to water bridge
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [28, 1]
+#
+# # Terrain to randomly layer on
+# random_terrains_layered_on = [1, 54, 59, 58, 23]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain:
+#             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.terrain_id = 28
+#             terrain.layer = random.choice(random_terrains_layered_on)
 
-# Allowed terrain
-allowed_terrains = [22, 23, 1, 4, 15, 28, 57, 58, 95, 96, 97, 98, 99]
+# '''
+# Find mud (unlayered) and change it to grass + mud layered in
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [76, 6, 7]
+#
+# # Terrain to randomly layer on
+# random_terrains_core = [12, 0, 9, 100]
+#
+# # Terrain to randomly change into
+# random_terrains_layered_on = [76, 77]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain and terrain.layer == -1:
+#             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.terrain_id = random.choice(random_terrains_core)
+#             terrain.layer = random.choice(random_terrains_layered_on)
 
-# Terrain to randomly change into
-random_terrains_added_in = [70, 108, 102]
+
+# '''
+# Find water (1) and change it to ice (26)
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [1, 28, 26]
+#
+# # Terrain to randomly layer on
+# random_terrains_layered_on = [1]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain:
+#             print(
+#                 "terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.terrain_id = 26
+#             terrain.layer = random.choice(random_terrains_layered_on)
+
+# '''
+# Find land and layer snow (32, 73, 74) on them
+# '''
+#
+# # Allowed terrain (ALL LANDS TERRAIN)
+# allowed_terrains = [0, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 29, 30, 31, 32, 36,
+#                     40, 41, 42, 45, 46, 48, 49, 50, 56, 60, 63, 64, 65, 66, 67, 70, 71, 72, 75, 76, 77, 78, 83, 88, 89,
+#                     100, 101, 102, 104, 105, 106, 110, 111, 112]
+#
+# # Terrain to randomly layer on
+# random_terrains_layered_on = [32, 73, 74]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain:
+#             print(
+#                 "terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.layer = random.choice(random_terrains_layered_on)
+
+
+# '''
+# !!! HOW THIS WORKS: (This is a script that will turn all river shores to be gravels)
+# Scan all water in the map, after identify a water tile it will scan adjacent tiles.
+# If the adjacent tiles happens to be water, ignore it. Otherwise, turn it into gravel.
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [22, 23, 1, 4, 15, 28, 57, 58, 95, 96, 97, 98, 99]
+#
+# # Terrain to randomly layer on
+# random_terrains_added_in = [70, 108, 102]
 
 source_scenario.map_manager.terrain = originalTerrains
 

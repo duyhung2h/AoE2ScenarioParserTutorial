@@ -15,8 +15,9 @@ def resource_path(relative_path):
 File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
-ScenarioParser - RemoveTriggers
+ScenarioParser - TransferTriggers
 Tales of Tenebria version 0v16
+Gloria Victis
 '''
 
 input_scenario_nanme = input(
@@ -52,20 +53,24 @@ transfer_trigger_manager = transfer_scenario.trigger_manager
 
 
 # put triggers ranging from index position_start to position_end, to position position_transfer in the target file
-position_start = 492;
+position_start = int(input("Starting index Position: "))
 # position_end = source_trigger_manager.triggers.__len__();
-position_end = 510;
-position_transfer = 505; #Leaving it out (or -1) is placing your triggers at the end
+position_end = int(input("Ending index Position: "))
+position_transfer = int(input("Copy to Index (Leaving it out (or -1) is placing your triggers at the end): "))
 
 # Mark the start of trigger copying!
 triggersNew = []
 # transfer_trigger_manager.add_trigger(name="---TRIGGER COPY START-----")
-triggersNew.append(source_trigger_manager.triggers[position_start:position_end])
+print(source_trigger_manager.triggers[position_start:position_end])
+for trigger in source_trigger_manager.triggers[position_start:position_end]:
+    print(trigger)
+    triggersNew.append(trigger)
+# triggersNew.append(source_trigger_manager.triggers[position_start:position_end])
 # transfer_trigger_manager.add_trigger(name="---TRIGGER COPY START-----")
 
 # transfer the triggers and variables
 # (source_trigger_manager.triggers[position_start:position_end]) to get list of triggers from start to end
-transfer_trigger_manager.import_triggers(triggers=triggersNew, index=position_transfer);
+transfer_trigger_manager.import_triggers(triggers=triggersNew, index=position_transfer)
 
 # Final step: write a modified scenario class to a new scenario file
 transfer_scenario.write_to_file(filename=output_path)

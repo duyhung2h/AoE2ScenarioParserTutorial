@@ -18,6 +18,8 @@ Copy the file name (click on the line and CTRL + C):
 
 12warlords modified
 12warlords 0v1v30
+
+Gloria Victis v0v1v1
 '''
 
 input_scenario_nanme = input(
@@ -49,22 +51,39 @@ source_trigger_manager = source_scenario.trigger_manager
 # get all the terrains tiles (compiled in a list) in the map
 originalTerrains = source_scenario.map_manager.terrain
 
-'''
-Find water bridge and change it to water shallow
-'''
+# '''
+# Find water bridge and change it to water shallow
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [28, 1]
+#
+# # Terrain to randomly layer on
+# random_terrains_layered_on = [1, 54, 59, 58, 23]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain:
+#             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.terrain_id = 1
+#             terrain.layer = random.choice(random_terrains_layered_on)
 
-# Allowed terrain
-allowed_terrains = [28, 1]
-
-# Terrain to randomly layer on
-random_terrains_layered_on = [1, 54, 59, 58, 23]
-
-for terrain in originalTerrains:
-    for allowed_terrain in allowed_terrains:
-        if terrain.terrain_id == allowed_terrain:
-            print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
-            terrain.terrain_id = 1
-            terrain.layer = random.choice(random_terrains_layered_on)
+# '''
+# Find shallow and turn it into water bridge
+# '''
+#
+# # Allowed terrain
+# allowed_terrains = [28, 4]
+#
+# # Terrain to randomly layer on
+# random_terrains_layered_on = [1, 54, 59, 58, 23]
+#
+# for terrain in originalTerrains:
+#     for allowed_terrain in allowed_terrains:
+#         if terrain.terrain_id == allowed_terrain:
+#             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+#             terrain.terrain_id = 28
+#             terrain.layer = random.choice(random_terrains_layered_on)
 
 # '''
 # Find water shallow and change it to water bridge
@@ -141,6 +160,20 @@ for terrain in originalTerrains:
 #                 "terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
 #             terrain.layer = random.choice(random_terrains_layered_on)
 
+'''
+Find non-water terrain and raise their elevation if their elevation <= 1
+'''
+# Allowed terrain (ALL LANDS TERRAIN)
+allowed_terrains = [0, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 29, 30, 31, 32, 36,
+                    40, 41, 42, 45, 46, 48, 49, 50, 56, 60, 63, 64, 65, 66, 67, 70, 71, 72, 75, 76, 77, 78, 83, 88, 89,
+                    100, 101, 102, 104, 105, 106, 110, 111, 112]
+for terrain in originalTerrains:
+    for allowed_terrain in allowed_terrains:
+        if terrain.terrain_id == allowed_terrain:
+            print(
+                "terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+            if terrain.elevation <= 0:
+                terrain.elevation = 1
 
 # '''
 # !!! HOW THIS WORKS: (This is a script that will turn all river shores to be gravels)

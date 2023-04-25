@@ -17,10 +17,13 @@ Copy the file name (click on the line and CTRL + C):
 ScenarioParser - ModifyAllUnits
 The Awakening
 The Awakening Parser Result2
-12warlords 0v1v30 Parser Result
+12warlords 0v1v31 Parser Result
+12warlords 0v1v30 Parser Result Parser Result2
+12warlords 0v1v30 Parser Result Parser Result2 Parser Result2
 
-200 - 
-255 - W
+160 - S
+115 - W
+50 - N
 '''
 
 input_scenario_nanme = input(

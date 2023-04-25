@@ -17,7 +17,8 @@ File & Folder setup
 Copy the file name (click on the line and CTRL + C):
 
 12warlords modified
-12warlords 0v1v30
+12warlords 0v1v31
+
 '''
 
 input_scenario_nanme = input(
@@ -53,23 +54,6 @@ originalTerrains = source_scenario.map_manager.terrain
 Find water bridge and change it to water shallow
 '''
 
-# Allowed terrain
-allowed_terrains = [28, 1]
-
-# Terrain to randomly layer on
-random_terrains_layered_on = [1, 54, 59, 58, 23]
-
-for terrain in originalTerrains:
-    for allowed_terrain in allowed_terrains:
-        if terrain.terrain_id == allowed_terrain:
-            print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
-            terrain.terrain_id = 1
-            terrain.layer = random.choice(random_terrains_layered_on)
-
-# '''
-# Find water shallow and change it to water bridge
-# '''
-#
 # # Allowed terrain
 # allowed_terrains = [28, 1]
 #
@@ -80,8 +64,37 @@ for terrain in originalTerrains:
 #     for allowed_terrain in allowed_terrains:
 #         if terrain.terrain_id == allowed_terrain:
 #             print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
-#             terrain.terrain_id = 28
-#             terrain.layer = random.choice(random_terrains_layered_on)
+#             if terrain.layer > -1:
+#                 newLayer = terrain.layer
+#                 terrain.terrain_id = 1
+#                 terrain.layer = newLayer
+#             else:
+#                 terrain.terrain_id = 1
+#                 print("change layer")
+#                 terrain.layer = random.choice(random_terrains_layered_on)
+
+'''
+Find water shallow and change it to water bridge
+'''
+
+# Allowed terrain
+allowed_terrains = [28, 1]
+
+# Terrain to randomly layer on
+random_terrains_layered_on = [1, 54, 59, 58, 23]
+
+for terrain in originalTerrains:
+    for allowed_terrain in allowed_terrains:
+        if terrain.terrain_id == allowed_terrain:
+            print("terrain.terrain_id == allowed_terrain: " + str(terrain.terrain_id) + ", layer: " + str(terrain.layer))
+            if terrain.layer > -1:
+                newLayer = terrain.layer
+                terrain.terrain_id = 28
+                terrain.layer = newLayer
+            else:
+                terrain.terrain_id = 28
+                print("change layer")
+                terrain.layer = random.choice(random_terrains_layered_on)
 
 # '''
 # Find mud (unlayered) and change it to grass + mud layered in
